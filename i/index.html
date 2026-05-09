@@ -150,8 +150,9 @@
 
   <script>
     (function () {
-      // Extrai o código do convite da URL: /i/ABCDEF → "ABCDEF"
-      var code = window.location.pathname.replace(/^\/i\/?/, '').replace(/\/$/, '').toUpperCase();
+      // Extrai o código do convite — suporta /i/ABCDEF e /i/?c=ABCDEF
+      var params = new URLSearchParams(window.location.search);
+      var code = (params.get('c') || window.location.pathname.replace(/^\/i\/?/, '').replace(/\/$/, '')).toUpperCase();
 
       if (code && code.length === 6) {
         var badge = document.getElementById('invite-badge');

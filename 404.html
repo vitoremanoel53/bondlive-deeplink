@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"/></head>
+<script>
+  // Redireciona /i/CODIGO → /i/?c=CODIGO para o GitHub Pages conseguir servir o index.html
+  var path = window.location.pathname;
+  var match = path.match(/^\/i\/([A-Za-z0-9]+)\/?$/);
+  if (match) {
+    window.location.replace('/i/?c=' + match[1]);
+  }
+</script>
+</html>
